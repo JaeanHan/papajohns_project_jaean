@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500&family=Nunito&display=swap");
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 18px;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #f3f9f9;
+  height: 1500px;
+}
+
+header {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: white;
+  margin: 0 auto;
+  padding-right: 20px;
+  box-sizing: border-box;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0px 1px 3px #d6d6d6;
+}
+
+.header__nav {
+  width: 1180px;
+  background-color: white;
+  display: flex;
+  opacity: 0.95;
+  z-index: 99;
+  position: absolute;
+  top: 100px;
+  left: 120px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top: 1px solid #d6d6d6;
+
+  height: 0;
+  overflow: hidden;
+  transition-delay: 0s;
+  transition-duration: 0.3s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+
+.header__nav__list {
+  display: flex;
+}
+
+.header__nav__list li {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  justify-content: flex-start;
+  padding-left: 40px;
+  padding-top: 30px;
+  box-sizing: border-box;
+  border-right: 1px solid #d6d6d6;
+}
+
+.header__nav__list li:last-child {
+  border: none;
+}
+.header__nav__list li a {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+.header__nav__list li a:first-child {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.menu_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  box-sizing: border-box;
+  margin-left: 60px;
+}
+
+.menu_wrap__list {
+  width: 400px;
+  height: 100%;
+  display: flex;
+  padding: 0 100px 0 0;
+  margin-left: 60px;
+  justify-content: center;
+}
+
+.menu_wrap__list li {
+  margin-right: 40px;
+  height: 100%;
+}
+
+.menu_wrap__list li:last-child {
+  margin-right: 0;
+}
+
+.menu_wrap__list li a:hover {
+  background-color: #e43d2b;
+  border-radius: 10px;
+  color: white;
+  height: 100%;
+}
+
+.logo {
+  width: 260px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.client_wrap__list {
+  display: flex;
+  width: 380px;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  box-sizing: border-box;
+  margin-right: 60px;
+}
+
+.client_wrap__list li {
+  margin-right: 50px;
+}
+
+.client_wrap__list li:last-child {
+  margin-right: 0;
+}
+
+.client_wrap__list li:nth-child(2) {
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid;
+  text-align: center;
+  line-height: 30px;
+}
+
+.client_wrap__list__signup {
+  text-decoration: underline;
+}
+
+.select {
+  color: #d6d6d6;
+}
+
+#btn1 {
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  /* transition: 0.4s; */
+  /* background-image: url("/static/img/icon_lnb_menu.png"); */
+}

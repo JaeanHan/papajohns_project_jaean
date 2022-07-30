@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Papjohns-join</title>
+    <link rel="stylesheet" href="/static/css/include/reset.css" />
+    <link rel="stylesheet" href="/static/css/include/header.css" />
+    <link rel="stylesheet" href="/static/css/include/footer.css" />
+    <link rel="stylesheet" href="/static/css/include/sidebar.css" />
+    <link rel="stylesheet" href="/static/css/join.css" />
+  </head>
+  <body>
+    <div id="wrap">
+      <header></header>
+      <main>
+        <div id="form-wrap">
+          <div class="page-title">
+            <div></div>
+            <h1>회원가입</h1>
+            <p><span>홈</span> ><span>회원가입</span></p>
+          </div>
+          <section>
+            <div class="form-begin">
+              <h1>정보 입력</h1>
+              <span>*필수사항 입니다.</span>
+            </div>
+            <hr />
+            <div class="join-input">
+              <label for="name">이름<span>* </span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="이름을 입력해주세요."
+              />
+            </div>
+            <div class="join-input">
+              <label for="username">아이디<span>* </span></label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="영문, 숫자 조합으로 6~20글자를 입력해주세요."
+              />
+              <button class="api_btn">중복 체크</button>
+            </div>
+            <div class="join-input">
+              <label for="password">비밀번호<span>* </span></label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="영문, 숫자, 특수문자 ! @ # $ & * 조합으로 8~20 글자 내외"
+              />
+              <input
+                type="password"
+                id="password-check"
+                name="password-check"
+                placeholder="비밀번호를 한번 더 입력해주세요."
+              />
+            </div>
+            <div class="join-input">
+              <label for="email">이메일<span>* </span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="이메일 입력을 입력해주세요."
+              />
+            </div>
+            <div class="join-input">
+              <label for="contact-home1">전화번호</label>
+              <div class="select-wrap">
+                <select name="contact-home1" id="contact-home1">
+                  <option value="choice" disabled selected>
+                    선택해주세요.
+                  </option>
+                  <option value="0">없음</option>
+                  <option value="02">02</option>
+                  <option value="031">031</option>
+                  <option value="032">032</option>
+                  <option value="033">033</option>
+                  <option value="041">041</option>
+                  <option value="042">042</option>
+                  <option value="043">043</option>
+                  <option value="051">051</option>
+                  <option value="052">052</option>
+                  <option value="053">053</option>
+                  <option value="054">054</option>
+                  <option value="055">055</option>
+                  <option value="061">061</option>
+                  <option value="062">062</option>
+                  <option value="063">063</option>
+                  <option value="064">064</option>
+                </select>
+                <input
+                  type="text"
+                  id="contact-home2"
+                  name="contact-home2"
+                  class="number-input"
+                  style="display: none"
+                />
+                <input
+                  type="text"
+                  id="contact-home3"
+                  name="contact-home3"
+                  class="number-input"
+                  style="display: none"
+                />
+              </div>
+            </div>
+            <div class="join-input">
+              <label for="contact-phone">휴대폰<span>* </span></label>
+              <div class="select-wrap">
+                <select name="contact-phone1" id="contact-phone">
+                  <option value="010">010</option>
+                  <option value="011">011</option>
+                  <option value="016">016</option>
+                  <option value="017">017</option>
+                  <option value="018">018</option>
+                  <option value="019">019</option>
+                </select>
+
+                <input
+                  type="text"
+                  id="contact-phone2"
+                  name="contact-phone2"
+                  class="number-input"
+                />
+                <input
+                  type="text"
+                  id="contact-phone3"
+                  name="contact-phone3"
+                  class="number-input"
+                />
+              </div>
+              <button class="api_btn">인증 번호 발송</button>
+            </div>
+            <div class="join-input">
+              <label for="valid">인증번호<span>* </span></label>
+              <input
+                type="text"
+                id="valid"
+                name="valid"
+                placeholder="인증 번호를 발송해주세요."
+                disabled
+              />
+            </div>
+            <div class="join-input">
+              <label for="name">생년월일</label>
+              <div class="birth-input-wrap">
+                <div class="radio-wrap">
+                  <div class="custom-radio">
+                    <label for="solarJoin">
+                      <input
+                        type="radio"
+                        name="birthday"
+                        id="solarJoin"
+                        value="S"
+                        checked
+                      />
+                      <div class="text">양력</div>
+                    </label>
+                  </div>
+                  <div class="custom-radio">
+                    <label for="lunarJoin">
+                      <input
+                        type="radio"
+                        name="birthday"
+                        id="lunarJoin"
+                        value="L"
+                      />
+                      <div class="text">음력</div>
+                    </label>
+                  </div>
+                </div>
+                <div class="date-wrap">
+                  <div class="select-wrap">
+                    <select name="chYear" id="chYearJoin">
+                      <option value="-1" selected>-------</option>
+                    </select>
+                  </div>
+                  <div class="select-wrap">
+                    <select name="chMonth" id="chMonthJon">
+                      <option value="-1" selected>-------</option>
+                    </select>
+                  </div>
+                  <div class="select-wrap">
+                    <select name="chDay" id="chDayJoin">
+                      <option value="-1" selected>-------</option>
+                    </select>
+                  </div>
+                  </select>
+                </div>
+                <strong>※ 만 14세 미만의 어린이는 보호자 동의가 필요합니다.</strong>
+              </div>
+            </div>
+            <div class="join-input">
+              <label>성별</label>
+              <div class="gender-input-wrap">
+                <div class="radio-wrap">
+                  <div class="custom-radio">
+                    <label for="maleJoin">
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="maleJoin"
+                        value="M"
+                        checked
+                      />
+                      <div class="text">남성</div>
+                    </label>
+                  </div>
+                  <div class="custom-radio">
+                    <label for="femaleJoin">
+                      <input
+                        type="radio"
+                        name="gender"
+                        id="femaleJoin"
+                        value="F"
+                      />
+                      <div class="text">여성</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- end input form -->
+
+            <div class="agreement-begin">
+              <h1>약관 동의 및 마케팅 동의</h1>
+            </div>
+            <div class="agreement-all">
+              <label for="agreeAll"><input id="agreeAll" type="checkbox" checked>모든 약관 및 마케팅에 동의합니다.</label>
+            </div>
+            <ul class="agreement-list">
+              <li>
+                <label for="required1"><input id="required1" type="checkbox" checked>파파존스 이용약관 (필수)<span>보기</span></label>
+              </li>
+              <li>
+                <label for="required2"><input id="required2" type="checkbox" checked>개인정보 수집 및 이용 동의 (필수)<span>보기</span></label>
+              </li>
+              <li>
+                <label for="required3"><input id="required3" type="checkbox" checked>위치기반 서비스 이용약관 (필수)<span>보기</span></label>
+              </li>
+            </ul>
+            <div class="agreement-optional">
+              <div class="marketing">
+                <h3>마케팅 활용 동의</h3>
+                <p>마케팅/홍보를 위한 아래 항목의 정보를 이용하는데 동의하십니까? <br>
+                  동의 거부 시 할인 및 이벤트 정보안내 서비스가 제한됩니다.
+                </p>
+                <ul>
+                  <li>
+                    <label for="receive-email"><input id="receive-email" type="checkbox" checked>이메일을 통한 제품 및 이벤트 정보 수신의 동의</label>
+                  </li>
+                  <li>
+                    <label for="receive-sms"><input id="receive-sms" type="checkbox" checked>문자(SMS, MMS)통한 제품 및 이벤트 정보 수신에 동의</label>
+                  </li>
+                  <li>
+                    <label for="receive-post"><input id="receive-post" type="checkbox" checked>우편DM을 통한 제품 및 이벤트 정보수신에 동의(최근 배달주소사용)</label>
+                  </li>
+                </ul>
+              </div>
+              <div class="reward">
+                <h3>파파 리워드 가입</h3>
+                <p>파파 리워드 가입시 리워드 조각 적립을 통해 다양한 혜택을 <br>
+                  받아보실 수 있습니다. *문자(SMS,MMS) 수신 동의 필수
+                </p>
+                <ul>
+                  <li>
+                    <label for="agree-reward"><input id="agree-reward" type="checkbox" checked>파파 리워드 가입에 동의합니다.</label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="popup">
+              <h3>안내 팝업 이용 설정</h3>
+              <hr/>
+              <ul >
+                <li>
+                  <label for="agree-drink-popup"><input id="agree-drink-popup" type="checkbox" checked>사이드/음료 권유</label>
+                </li>
+                <li>
+                  <label for="agree-notification-popup"><input id="agree-notification-popup" type="checkbox" checked>홈페이지 공지 팝업</label>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <div class="btn-wrap">
+            <button class="join-btn">가입완료</button>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+      <div class="side_remote"></div>
+    </div>
+    <script src="/static/js/include/header.js"></script>
+    <script src="/static/js/include/footer.js"></script>
+    <script src="/static/js/include/sidebar.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/js/join.js"></script>
+  </body>
+</html>
