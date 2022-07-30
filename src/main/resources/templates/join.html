@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/include/header.css" />
     <link rel="stylesheet" href="/static/css/include/footer.css" />
     <link rel="stylesheet" href="/static/css/include/sidebar.css" />
+    <link rel="stylesheet" href="/static/css/include/topbutton.css">
     <link rel="stylesheet" href="/static/css/join.css" />
   </head>
   <body>
@@ -17,7 +18,7 @@
           <div class="page-title">
             <div></div>
             <h1>회원가입</h1>
-            <p><span>홈</span> ><span>회원가입</span></p>
+            <div><span>홈</span> ><span>회원가입</span></div>
           </div>
           <section>
             <div class="form-begin">
@@ -25,50 +26,65 @@
               <span>*필수사항 입니다.</span>
             </div>
             <hr />
-            <div class="join-input">
+            <div class="join-input for-req1">
               <label for="name">이름<span>* </span></label>
               <input
                 type="text"
                 id="name"
                 name="name"
+
+                value="이름 입력창"
+
                 placeholder="이름을 입력해주세요."
               />
             </div>
-            <div class="join-input">
+            <div class="join-input for-req1">
               <label for="username">아이디<span>* </span></label>
               <input
                 type="text"
                 id="username"
                 name="username"
+
+                value="아이디 입력창"
+
                 placeholder="영문, 숫자 조합으로 6~20글자를 입력해주세요."
               />
               <button class="api_btn">중복 체크</button>
             </div>
-            <div class="join-input">
+            <div class="join-input for-req1">
               <label for="password">비밀번호<span>* </span></label>
               <input
                 type="password"
                 id="password"
                 name="password"
+
+                value="비밀번호 입력창"
+
                 placeholder="영문, 숫자, 특수문자 ! @ # $ & * 조합으로 8~20 글자 내외"
               />
               <input
                 type="password"
                 id="password-check"
                 name="password-check"
+
+                value="비밀번호 확인 입력창"
+
                 placeholder="비밀번호를 한번 더 입력해주세요."
               />
             </div>
-            <div class="join-input">
+            <div class="join-input for-req1">
               <label for="email">이메일<span>* </span></label>
               <input
                 type="email"
                 id="email"
                 name="email"
+
+                value="이메일 입력창"
+
                 placeholder="이메일 입력을 입력해주세요."
               />
             </div>
-            <div class="join-input">
+            <div class="join-input contact-home-input">
               <label for="contact-home1">전화번호</label>
               <div class="select-wrap">
                 <select name="contact-home1" id="contact-home1">
@@ -99,6 +115,8 @@
                   name="contact-home2"
                   class="number-input"
                   style="display: none"
+
+                  value="2222"
                 />
                 <input
                   type="text"
@@ -106,10 +124,12 @@
                   name="contact-home3"
                   class="number-input"
                   style="display: none"
+
+                  value="3333"
                 />
               </div>
             </div>
-            <div class="join-input">
+            <div class="join-input contact-phone-input">
               <label for="contact-phone">휴대폰<span>* </span></label>
               <div class="select-wrap">
                 <select name="contact-phone1" id="contact-phone">
@@ -125,16 +145,22 @@
                   type="text"
                   id="contact-phone2"
                   name="contact-phone2"
+
+                  value="0000"
+
                   class="number-input"
                 />
                 <input
                   type="text"
                   id="contact-phone3"
                   name="contact-phone3"
+
+                  value="1111"
+
                   class="number-input"
                 />
               </div>
-              <button class="api_btn">인증 번호 발송</button>
+              <button id="phone-validation" class="api_btn">인증 번호 발송</button>
             </div>
             <div class="join-input">
               <label for="valid">인증번호<span>* </span></label>
@@ -142,11 +168,14 @@
                 type="text"
                 id="valid"
                 name="valid"
+                
+                value="인증번호 입력창"
+
                 placeholder="인증 번호를 발송해주세요."
                 disabled
               />
             </div>
-            <div class="join-input">
+            <div class="join-input birthday-input">
               <label for="name">생년월일</label>
               <div class="birth-input-wrap">
                 <div class="radio-wrap">
@@ -253,13 +282,13 @@
                 </p>
                 <ul>
                   <li>
-                    <label for="receive-email"><input id="receive-email" type="checkbox" checked>이메일을 통한 제품 및 이벤트 정보 수신의 동의</label>
+                    <label for="receive-email"><input class="whetherOK" value="emailOK" id="receive-email" type="checkbox" checked>이메일을 통한 제품 및 이벤트 정보 수신의 동의</label>
                   </li>
                   <li>
-                    <label for="receive-sms"><input id="receive-sms" type="checkbox" checked>문자(SMS, MMS)통한 제품 및 이벤트 정보 수신에 동의</label>
+                    <label for="receive-sms"><input class="whetherOK" value="smsOK" id="receive-sms" type="checkbox" checked>문자(SMS, MMS)통한 제품 및 이벤트 정보 수신에 동의</label>
                   </li>
                   <li>
-                    <label for="receive-post"><input id="receive-post" type="checkbox" checked>우편DM을 통한 제품 및 이벤트 정보수신에 동의(최근 배달주소사용)</label>
+                    <label for="receive-post"><input class="whetherOK" value="postOK" id="receive-post" type="checkbox" checked>우편DM을 통한 제품 및 이벤트 정보수신에 동의(최근 배달주소사용)</label>
                   </li>
                 </ul>
               </div>
@@ -270,7 +299,7 @@
                 </p>
                 <ul>
                   <li>
-                    <label for="agree-reward"><input id="agree-reward" type="checkbox" checked>파파 리워드 가입에 동의합니다.</label>
+                    <label for="agree-reward"><input class="whetherOK" value="rewardOK" id="agree-reward" type="checkbox" checked>파파 리워드 가입에 동의합니다.</label>
                   </li>
                 </ul>
               </div>
@@ -280,26 +309,31 @@
               <hr/>
               <ul >
                 <li>
-                  <label for="agree-drink-popup"><input id="agree-drink-popup" type="checkbox" checked>사이드/음료 권유</label>
+                  <label for="agree-drink-popup"><input class="whetherOK" value="drinkOK" id="agree-drink-popup" type="checkbox" checked>사이드/음료 권유</label>
                 </li>
                 <li>
-                  <label for="agree-notification-popup"><input id="agree-notification-popup" type="checkbox" checked>홈페이지 공지 팝업</label>
+                  <label for="agree-notification-popup"><input class="whetherOK" value="notiOK" id="agree-notification-popup" type="checkbox" checked>홈페이지 공지 팝업</label>
                 </li>
               </ul>
             </div>
           </section>
           <div class="btn-wrap">
-            <button class="join-btn">가입완료</button>
+            <button id="submit-btn" class="join-btn">가입완료</button>
           </div>
         </div>
       </main>
+
       <footer></footer>
+
       <div class="side_remote"></div>
+
+      <div class="page_remote"><img src="/static/img/icon_top.png" alt="" /></div>
     </div>
     <script src="/static/js/include/header.js"></script>
     <script src="/static/js/include/footer.js"></script>
     <script src="/static/js/include/sidebar.js"></script>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/js/include/topbutton.js"></script>
     <script src="/static/js/join.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   </body>
 </html>

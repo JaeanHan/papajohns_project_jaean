@@ -9,7 +9,7 @@ header.innerHTML = `
         <li><a href="">E-쿠폰주문</a></li>
       </ul>
     </div>
-    <a href="#" class="logo">
+    <a href="/" class="logo">
       <img src="/static/img/220301_icon_logo.png" alt="logo" />
     </a>
     <div class="client_wrap">
