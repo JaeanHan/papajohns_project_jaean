@@ -1,4 +1,4 @@
-package com.springboot.papajohns.web.dto;
+package com.springboot.papajohns.domain.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,24 +11,25 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @Data
-public class UserJoinReqDto {
+public class User {
+    private int user_code;
     private String name;
     private String username;
     private String password;
     private String email;
-    private String contactHome;
-    private String contactPhone;
+    private String contact_phone;
+    private String contact_house;
+    private String role;
     private LocalDateTime birthday;
     private int gender;
 
     private int getEmail;
-    private int getSMS;
+    private int getSms;
     private int getPost;
+    private int reward;
+    private int popup_drink;
+    private int popup_page;
 
-    private int getDrinkRec;
-    private int getPagePopup;
-
-    private LocalDateTime createDate;
-    private LocalDateTime updateDate;
-
+    private LocalDateTime create_date;
+    private LocalDateTime update_date;
 }

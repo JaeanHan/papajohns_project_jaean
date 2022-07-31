@@ -32,9 +32,6 @@
                 type="text"
                 id="name"
                 name="name"
-
-                value="이름 입력창"
-
                 placeholder="이름을 입력해주세요."
               />
             </div>
@@ -44,9 +41,6 @@
                 type="text"
                 id="username"
                 name="username"
-
-                value="아이디 입력창"
-
                 placeholder="영문, 숫자 조합으로 6~20글자를 입력해주세요."
               />
               <button class="api_btn">중복 체크</button>
@@ -57,18 +51,12 @@
                 type="password"
                 id="password"
                 name="password"
-
-                value="비밀번호 입력창"
-
                 placeholder="영문, 숫자, 특수문자 ! @ # $ & * 조합으로 8~20 글자 내외"
               />
               <input
                 type="password"
                 id="password-check"
                 name="password-check"
-
-                value="비밀번호 확인 입력창"
-
                 placeholder="비밀번호를 한번 더 입력해주세요."
               />
             </div>
@@ -78,9 +66,6 @@
                 type="email"
                 id="email"
                 name="email"
-
-                value="이메일 입력창"
-
                 placeholder="이메일 입력을 입력해주세요."
               />
             </div>
@@ -115,8 +100,6 @@
                   name="contact-home2"
                   class="number-input"
                   style="display: none"
-
-                  value="2222"
                 />
                 <input
                   type="text"
@@ -124,8 +107,6 @@
                   name="contact-home3"
                   class="number-input"
                   style="display: none"
-
-                  value="3333"
                 />
               </div>
             </div>
@@ -145,18 +126,12 @@
                   type="text"
                   id="contact-phone2"
                   name="contact-phone2"
-
-                  value="0000"
-
                   class="number-input"
                 />
                 <input
                   type="text"
                   id="contact-phone3"
                   name="contact-phone3"
-
-                  value="1111"
-
                   class="number-input"
                 />
               </div>
@@ -168,9 +143,6 @@
                 type="text"
                 id="valid"
                 name="valid"
-                
-                value="인증번호 입력창"
-
                 placeholder="인증 번호를 발송해주세요."
                 disabled
               />
@@ -205,17 +177,17 @@
                 </div>
                 <div class="date-wrap">
                   <div class="select-wrap">
-                    <select name="chYear" id="chYearJoin">
+                    <select name="birth-select" id="chYearJoin">
                       <option value="-1" selected>-------</option>
                     </select>
                   </div>
                   <div class="select-wrap">
-                    <select name="chMonth" id="chMonthJon">
+                    <select name="birth-select" id="chMonthJon">
                       <option value="-1" selected>-------</option>
                     </select>
                   </div>
                   <div class="select-wrap">
-                    <select name="chDay" id="chDayJoin">
+                    <select name="birth-select" id="chDayJoin">
                       <option value="-1" selected>-------</option>
                     </select>
                   </div>
@@ -261,7 +233,7 @@
               <h1>약관 동의 및 마케팅 동의</h1>
             </div>
             <div class="agreement-all">
-              <label for="agreeAll"><input id="agreeAll" type="checkbox" checked>모든 약관 및 마케팅에 동의합니다.</label>
+              <label for="agreeAll"><input id="agreeAll" type="checkbox">모든 약관 및 마케팅에 동의합니다.</label>
             </div>
             <ul class="agreement-list">
               <li>
@@ -282,13 +254,13 @@
                 </p>
                 <ul>
                   <li>
-                    <label for="receive-email"><input class="whetherOK" value="emailOK" id="receive-email" type="checkbox" checked>이메일을 통한 제품 및 이벤트 정보 수신의 동의</label>
+                    <label for="receive-email"><input class="whetherOK" id="receive-email" type="checkbox">이메일을 통한 제품 및 이벤트 정보 수신의 동의</label>
                   </li>
                   <li>
-                    <label for="receive-sms"><input class="whetherOK" value="smsOK" id="receive-sms" type="checkbox" checked>문자(SMS, MMS)통한 제품 및 이벤트 정보 수신에 동의</label>
+                    <label for="receive-sms"><input class="whetherOK" id="receive-sms" type="checkbox">문자(SMS, MMS)통한 제품 및 이벤트 정보 수신에 동의</label>
                   </li>
                   <li>
-                    <label for="receive-post"><input class="whetherOK" value="postOK" id="receive-post" type="checkbox" checked>우편DM을 통한 제품 및 이벤트 정보수신에 동의(최근 배달주소사용)</label>
+                    <label for="receive-post"><input class="whetherOK" id="receive-post" type="checkbox">우편DM을 통한 제품 및 이벤트 정보수신에 동의(최근 배달주소사용)</label>
                   </li>
                 </ul>
               </div>
@@ -299,7 +271,7 @@
                 </p>
                 <ul>
                   <li>
-                    <label for="agree-reward"><input class="whetherOK" value="rewardOK" id="agree-reward" type="checkbox" checked>파파 리워드 가입에 동의합니다.</label>
+                    <label for="agree-reward"><input class="whetherOK" id="agree-reward" type="checkbox">파파 리워드 가입에 동의합니다.</label>
                   </li>
                 </ul>
               </div>
@@ -309,10 +281,10 @@
               <hr/>
               <ul >
                 <li>
-                  <label for="agree-drink-popup"><input class="whetherOK" value="drinkOK" id="agree-drink-popup" type="checkbox" checked>사이드/음료 권유</label>
+                  <label for="agree-drink-popup"><input class="whetherOK" id="agree-drink-popup" type="checkbox">사이드/음료 권유</label>
                 </li>
                 <li>
-                  <label for="agree-notification-popup"><input class="whetherOK" value="notiOK" id="agree-notification-popup" type="checkbox" checked>홈페이지 공지 팝업</label>
+                  <label for="agree-notification-popup"><input class="whetherOK" id="agree-notification-popup" type="checkbox">홈페이지 공지 팝업</label>
                 </li>
               </ul>
             </div>

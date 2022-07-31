@@ -105,8 +105,7 @@ hr {
   border: 1px solid #e1e1e1;
   box-sizing: border-box;
   padding-left: 10px;
-
-  color: #e1e1e1;
+  color: black;
 }
 
 .join-input input#password-check {
@@ -385,4 +384,8 @@ hr {
   color: white;
   font-size: 16px;
   cursor: pointer;
+}
+
+input {
+  color: black;
 }
