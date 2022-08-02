@@ -4,5 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserRepository {
-    int save(User user) throws Exception;
+    public int save(User user) throws Exception;
+
+    public User loadUserByUsername(String username) throws Exception;
 }

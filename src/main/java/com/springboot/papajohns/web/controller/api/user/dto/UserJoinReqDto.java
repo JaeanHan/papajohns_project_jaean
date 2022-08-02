@@ -1,4 +1,4 @@
-package com.springboot.papajohns.web.api.user.dto;
+package com.springboot.papajohns.web.controller.api.user.dto;
 
 import com.springboot.papajohns.domain.user.User;
 import lombok.AllArgsConstructor;
@@ -40,9 +40,9 @@ public class UserJoinReqDto {
                 .contact_phone(contactPhone)
                 .birthday(birthday)
                 .gender(gender)
-                .getEmail(getEmail)
-                .getSms(getSMS)
-                .getPost(getPost)
+                .get_email(getEmail)
+                .get_sms(getSMS)
+                .get_post(getPost)
                 .reward(reward)
                 .popup_drink(getDrinkRec)
                 .popup_page(getPagePopup)

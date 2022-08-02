@@ -6,6 +6,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,13 +26,18 @@ public class User {
     private LocalDateTime birthday;
     private int gender;
 
-    private int getEmail;
-    private int getSms;
-    private int getPost;
+    private int get_email;
+    private int get_sms;
+    private int get_post;
     private int reward;
     private int popup_drink;
     private int popup_page;
 
     private LocalDateTime create_date;
     private LocalDateTime update_date;
+
+    public List<String> getRolelist() {
+        if(this.role.length() > 0) return Arrays.asList(this.role.split(","));
+        else return new ArrayList<>();
+    }
 }

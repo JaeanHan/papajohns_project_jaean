@@ -136,6 +136,13 @@ header {
   margin-right: 50px;
 }
 
+.client_wrap__list li button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+}
+
 .client_wrap__list li:last-child {
   margin-right: 0;
 }
@@ -147,6 +154,7 @@ header {
   border: 1px solid;
   text-align: center;
   line-height: 30px;
+  box-sizing: border-box;
 }
 
 .client_wrap__list__signup {
@@ -164,4 +172,251 @@ header {
   cursor: pointer;
   /* transition: 0.4s; */
   /* background-image: url("/static/img/icon_lnb_menu.png"); */
+}
+
+.quick-login-popup {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.quick-login-popup .login-form {
+  height: 650px;
+  width: 820px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.quick-login-popup .login-form .popup-close-button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  right: 30px;
+}
+
+.quick-login-popup .login-form h1 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.quick-login-popup .login-form p {
+  font-size: 14px;
+  font-weight: normal;
+  margin-bottom: 25px;
+}
+
+.quick-login-popup .login-form .select-order {
+  width: 46%;
+  height: 100%;
+  /* background-color: dodgerblue; */
+}
+
+.quick-login-popup .login-form .select-order .button-container {
+  display: flex;
+}
+
+.quick-login-popup .login-form .select-order .button-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 55px;
+  color: black;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-bottom: 2px solid #f5f5f5;
+  background-color: white;
+  cursor: pointer;
+}
+
+.quick-login-popup .login-form .select-order .button-container .order-selected {
+  color: #e43d2b;
+  border-bottom: 2px solid #e43d2b;
+  font-weight: 600;
+}
+
+.quick-login-popup .login-form .select-order form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #f5f5f5;
+  margin-bottom: 20px;
+}
+
+.quick-login-popup .login-form .select-order form div {
+  width: 100%;
+  display: flex;
+  height: 50px;
+}
+
+.quick-login-popup .login-form .select-order form div:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+.quick-login-popup .login-form .select-order form div label {
+  width: 23%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.quick-login-popup .login-form .select-order form div input {
+  width: 77%;
+  height: 50px;
+  border-radius: 10px;
+  border: 2px solid #f5f5f5;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  background-color: white;
+}
+
+.login-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  margin-bottom: 5px;
+}
+
+.quick-login-popup
+  .login-form
+  .select-order
+  form
+  .login-button-container
+  label {
+  width: 70px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.quick-login-popup
+  .login-form
+  .select-order
+  form
+  .login-button-container
+  input {
+  width: 25px;
+  height: 25px;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-left: 20px;
+  accent-color: #ff3333;
+  cursor: pointer;
+  border: 2px solid #f5f5f5;
+}
+
+#login-button {
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  background-color: #ff3333;
+  border: 1px solid #ff3333;
+}
+
+.auth-login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-login-container h2 {
+  font-size: 14px;
+}
+
+.auth-login-container ul {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-login-container ul li {
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.auth-login-container ul li:first-child {
+  background-image: url("/static/img/icon_login_paco.png");
+  background-size: 60px 60px;
+}
+
+.auth-login-container ul li:nth-child(2) {
+  background-image: url("/static/img/icon_login_naver.png");
+  background-size: 60px 60px;
+}
+.auth-login-container ul li:nth-child(3) {
+  background-image: url("/static/img/icon_login_kakao.png");
+  background-size: 60px 60px;
+}
+.auth-login-container ul li:nth-child(4) {
+  background-image: url("/static/img/icon_login_apple.png");
+  background-size: 60px 60px;
+}
+
+.login-help {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.login-help span {
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.non-member-phone-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#non-member-phone-check input {
+  background-color: #414141;
+  font-size: 14px;
+  color: white;
+}
+
+#non-member-type-code {
+  margin-bottom: 15px;
 }

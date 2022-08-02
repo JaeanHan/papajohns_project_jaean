@@ -20,4 +20,29 @@
                now()
               )
     </insert>
+    <select id="loadUserByUsername" parameterType="String" resultType="com.springboot.papajohns.domain.user.User">
+        SELECT
+            user_code,
+            um.username,
+            um.PASSWORD,
+            um.email,
+            um.contact_phone,
+            um.contact_house,
+            um.role,
+            um.birthday,
+            um.gender,
+            ud.get_email,
+            ud.get_sms,
+            ud.get_post,
+            ud.reward,
+            ud.popup_drink,
+            ud.popup_page,
+            um.create_date,
+            um.update_date
+        FROM
+            user_mst um
+                LEFT OUTER JOIN user_dtl ud USING(user_code)
+        WHERE
+            um.username=#{username}
+    </select>
 </mapper>

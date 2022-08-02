@@ -129,7 +129,29 @@ passwordCheckInput.onblur = () => {
   else alert("비밀번호가 일치합니다!");
 };
 
+const usernameCheckBtn = document.querySelector("#usernameCheck");
 
+usernameCheckBtn.onclick = () => {
+  $.ajax({
+    method: "get",
+    url: `api/v1/user/duplication/${usernameInput.value}`,
+    dataType: "json",
+    success: (request, status, response) => {
+      if(request.data === true) {
+        alert("사용 가능한 아이디 입니다!")
+      } else {
+        alert("중복된 아이디 입니다.")
+        console.log(request.data.msg)
+      }
+    },
+    error : (request, status, response) => {
+      alert("아이디 중복 여부 확인중 에러가 발생하였습니다.");
+      console.log(request);
+      console.log(request.status);
+      console.log(response);
+    }
+  })
+}
 
 const now = new Date();
 

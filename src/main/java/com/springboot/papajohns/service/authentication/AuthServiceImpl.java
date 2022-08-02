@@ -1,8 +1,8 @@
 package com.springboot.papajohns.service.authentication;
 
-import com.springboot.papajohns.web.api.authentication.coolAPI.CoolAPIKey;
-import com.springboot.papajohns.web.api.authentication.coolAPI.dto.CoolAPIReqDto;
-import com.springboot.papajohns.web.api.authentication.coolAPI.dto.CoolAPIRespDto;
+import com.springboot.papajohns.web.controller.api.authentication.coolAPI.CoolAPIKey;
+import com.springboot.papajohns.web.controller.api.authentication.coolAPI.dto.CoolAPIReqDto;
+import com.springboot.papajohns.web.controller.api.authentication.coolAPI.dto.CoolAPIRespDto;
 import lombok.RequiredArgsConstructor;
 import net.nurigo.java_sdk.api.Message;
 import net.nurigo.java_sdk.exceptions.CoolsmsException;
@@ -31,7 +31,7 @@ public class AuthServiceImpl implements AuthService {
         map.put("text", comment + randCode);
         map.put("app_version", "text app 1.0");
 
-        JSONObject obj = (JSONObject) coolsms.send(map);
+        JSONObject obj = coolsms.send(map);
         return CoolAPIRespDto.builder()
                 .data(obj)
                 .secret(randCode)
