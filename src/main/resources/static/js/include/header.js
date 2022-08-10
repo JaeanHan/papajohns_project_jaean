@@ -3,19 +3,19 @@ const header = document.querySelector("header");
 const form1 = `
     <div>
       <label for="login-username">아이디</label>
-      <input id="login-username" type="text" />
+      <input id="login-username" name="username" type="text" />
     </div>
     <div>
       <label for="login-password">비밀번호</label>
-      <input id="login-password" type="password" />
+      <input id="login-password" name="password" type="password" />
     </div>
     <div class="login-button-container">
-      <input id="login-save" type="checkbox" checked />
+      <input id="login-save" type="checkbox" name="saveId" checked />
       <label for="login-save">아이디 저장</label>
-      <input id="login-remember" type="checkbox" checked />
+      <input id="login-remember" type="checkbox" name="rememberMe" checked />
       <label for="login-remember">자동 로그인</label>
     </div>
-    <button type="button" id="login-button">로그인</button>
+    <button id="login-button">로그인</button>
 `;
 
 const form2 = `
@@ -42,7 +42,7 @@ const afterForm1 = `
     <h2>간편 로그인</h2>
     <ul>
       <li></li>
-      <li></li>
+      <li><a href="/oauth2/authorization/naver">네이버</a></li>
       <li></li>
       <li></li>
     </ul>
@@ -79,7 +79,7 @@ const loginPopup = `
           <div class="member order-selected">회원 주문</div>
           <div class="non-member">비회원 주문</div>
         </div>
-        <form id="quick-login-form">
+        <form id="quick-login-form" action="/api/v1/user/login" method="post">
         ${form}
         </form>
         ${afterForm}
@@ -87,6 +87,8 @@ const loginPopup = `
     </div>
   </div>
 `;
+
+let headerLoginState = false;
 
 header.innerHTML = `
   <header class="header">
@@ -147,6 +149,8 @@ header.innerHTML = `
     </header>
 `;
 
+onload();
+
 const navBtn = document.querySelector("#btn1");
 const navList = document.querySelector(".header__nav");
 const navBtnImg = document.querySelector("#btn1 img");
@@ -164,6 +168,8 @@ const loginForm = document.querySelector("#quick-login-form");
 const loginAfterForm = document.querySelector(".select-order");
 
 const ment = document.querySelector("#ment");
+
+const loginButton = document.querySelector("#login-button");
 
 orderTypeMember.onclick = () => {
   orderTypeNonMember.classList.remove("order-selected");
@@ -199,3 +205,42 @@ quickLoginCloseButton.onclick = () => {
   orderTypeNonMember.classList.remove("order-selected");
   orderTypeMember.classList.add("order-selected");
 };
+
+function onload() {
+  const headmasters = document.querySelectorAll(".client_wrap__list li");
+  const authenticated1 = `<a href="/page" class="client_wrap__list__signup">마이페이지</a>`;
+  const authenticated2 = `<button class="client_wrap__list__signout">로그아웃</button>`;
+  $.ajax({
+    method: "get",
+    url: "api/v1/user/check",
+    dataType: "text",
+    success: response => {
+      if(response !== "null") {
+        console.log(response);
+        console.log(typeof response);
+        headerLoginState = true;
+        headmasters[0].innerHTML = authenticated1;
+        headmasters[1].innerHTML = authenticated2;
+
+        const signOutButton = document.querySelector(".client_wrap__list__signout");
+        signOutButton.onclick = () => {
+          $.ajax({
+            method: "post",
+            url: "api/v1/user/logout",
+            success: location.href="/",
+            error: (request, status, response) => {
+              console.log(request);
+              console.log(request.status);
+              console.log(response);
+            }
+          })
+        }
+      }
+    },
+    error: (request, status, response) => {
+      console.log(request);
+      console.log(request.status);
+      console.log(response);
+    }
+  })
+}

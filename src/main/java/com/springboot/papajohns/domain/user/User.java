@@ -1,5 +1,6 @@
 package com.springboot.papajohns.domain.user;
 
+import com.springboot.papajohns.web.controller.api.user.dto.UserPageRespDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -39,5 +40,24 @@ public class User {
     public List<String> getRolelist() {
         if(this.role.length() > 0) return Arrays.asList(this.role.split(","));
         else return new ArrayList<>();
+    }
+
+    public UserPageRespDto toRespDto() {
+        return UserPageRespDto
+                .builder()
+                .name(name)
+                .username(username)
+                .email(email)
+                .contactHome(contact_house)
+                .contactPhone(contact_phone)
+                .birthday(birthday)
+                .gender(gender)
+                .getEmail(get_email)
+                .getSms(get_sms)
+                .getPost(get_post)
+                .reward(reward)
+                .popupDrink(popup_drink)
+                .popupPage(popup_page)
+                .build();
     }
 }

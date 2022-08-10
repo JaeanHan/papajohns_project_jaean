@@ -9,6 +9,7 @@
         values(
                0,
                #{username},
+               #{name},
                #{password},
                #{email},
                #{contact_phone},
@@ -24,6 +25,7 @@
         SELECT
             user_code,
             um.username,
+            um.name,
             um.PASSWORD,
             um.email,
             um.contact_phone,

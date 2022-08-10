@@ -13,4 +13,9 @@ public class PageController {
 
     @GetMapping("join")
     public String join() {return "join";}
+
+    @GetMapping("page")
+    public String page() {
+        return "page";
+    }
 }

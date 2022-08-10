@@ -1,19 +1,35 @@
 package com.springboot.papajohns.config.auth;
 
 import com.springboot.papajohns.domain.user.User;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 @Data
-public class PrincipalDetails implements UserDetails {
+@NoArgsConstructor
+@AllArgsConstructor
+public class PrincipalDetails implements UserDetails, OAuth2User {
     private User user;
+    private Map<String, Object> attributes;
 
     public PrincipalDetails(User user) {
         this.user = user;
+    }
+
+    @Override
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+
+    public <A> A getAttribute(String name) {
+        return OAuth2User.super.getAttribute(name);
     }
 
     @Override
@@ -51,5 +67,10 @@ public class PrincipalDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String getName() {
+        return user.getName();
     }
 }
