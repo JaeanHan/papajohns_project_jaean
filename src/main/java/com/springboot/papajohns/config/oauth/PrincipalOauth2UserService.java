@@ -25,19 +25,18 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
         if(oAuth2UserRequest.getClientRegistration().getRegistrationId().equals("naver")) {
             oAuth2UserInfo = new NaverUserInfo(oAuth2User.getAttribute("response"));
-            System.out.println(oAuth2UserInfo.getName());
         }
 
         String provider = oAuth2UserInfo.getProvider();
         String providerId = oAuth2UserInfo.getProviderId();
 
         String username = provider + "_" + providerId;
+        System.out.println(username);
+        System.out.println(username.length());
         String password = new BCryptPasswordEncoder().encode("1234");
 
         String email = oAuth2UserInfo.getEmail();
         String name = oAuth2UserInfo.getName();
-
-        System.out.println(username);
 
         User user = userRepository.loadUserByUsername(username);
 
@@ -46,16 +45,16 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
             user = User.builder()
                     .username(username)
                     .password(password)
-                    .contact_phone(provider)
+                    .contact_phone(provider) //이거 가져와서 넣어야하는데 key가 먼지 모름
                     .email(email)
                     .name(name)
                     .role("ROLE_USER")
                     .build();
-            System.out.println(user);
 
             try {
                 userRepository.save(user);
             } catch (Exception e) {
+                e.printStackTrace();
                 System.out.println("예외");
             }
         }
