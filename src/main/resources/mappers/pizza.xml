@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.springboot.papajohns.domain.pizza.PizzaRepository">
+    <select id="getPizzaTotalPriceOfOne1" parameterType="com.springboot.papajohns.domain.pizza.ToppingEntity" resultType="Integer">
+        select
+        pm.pizza_price
+        <if test="!crust_type.isBlank()">
+            + pc.crust_price
+        </if>
+        <if test="toppingEntities != null">
+            + tp.tt
+        </if>
+        from pizza_mst pm
+        <if test="!crust_type.isBlank()">
+            left outer join pizza_crust pc using(pizza_size)
+        </if>
+        <if test="toppingEntities != null">
+            left outer join (
+            select sum(topping_price) tt
+            from pizza_topping where topping_name in
+                <foreach collection="toppingEntities" item="topping" separator="," open="(" close=")">
+                    #{topping.topping_name}
+                </foreach>
+
+            ) tp on(1=1)
+        </if>
+        where pm.pizza_name like #{pizza_name} and pm.pizza_size = #{pizza_size}
+        <if test="!crust_type.isBlank()">
+            and pc.crust_type like #{crust_type}
+        </if>
+    </select>
+    <select id="getPizzaTotalPriceOfOne2" parameterType="com.springboot.papajohns.domain.pizza.ToppingEntity" resultType="Integer">
+        <choose>
+            <when test="crust_type.isBlank() and toppingEntities == null">
+                select pizza_price from pizza_mst where pizza_name like #{pizza_name} and pizza_size = #{pizza_size}
+            </when>
+            <when test="!crust_type.isBlank() and toppingEntities == null">
+                select pm.pizza_price + pc.crust_price
+                from pizza_mst pm left outer join pizza_crust pc using(pizza_size)
+                where pm.pizza_name like #{pizza_name} and pm.pizza_size = #{pizza_size} and pc.crust_type like #{crust_type}
+            </when>
+            <when test="crust_type.isBlank() and toppingEntities != null">
+                select pm.pizza_price + tp.tt
+                from pizza_mst pm
+                left outer join (
+                    select sum(topping_price) as tt
+                    from pizza_topping
+                    where topping_name in
+                    <foreach collection="toppingEntities" item="topping" separator="," open="(" close=")">
+                        #{topping.topping_name}
+                    </foreach>
+                ) as tp on(1=1)
+                where pm.pizza_name like #{pizza_name} and pm.pizza_size = #{pizza_size}
+            </when>
+            <otherwise>
+                select pm.pizza_price + pc.crust_price + tp.tt
+                from pizza_mst pm
+                left outer join pizza_crust pc using(pizza_size)
+                left outer join (
+                    select sum(topping_price) as tt
+                    from pizza_topping
+                    where topping_name in
+                    <foreach collection="toppingEntities" item="topping" separator="," open="(" close=")">
+                        #{topping.topping_name}
+                    </foreach>
+                ) as tp on (1=1)
+                where pm.pizza_name like #{pizza_name} and pm.pizza_size=#{pizza_size} and
+                    pc.crust_type like #{crust_type}
+            </otherwise>
+
+        </choose>
+    </select>
+</mapper>

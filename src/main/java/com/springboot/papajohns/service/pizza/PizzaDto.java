@@ -1,23 +1,28 @@
 package com.springboot.papajohns.service.pizza;
 
-import com.springboot.papajohns.service.pizza.component.Dow;
+import com.springboot.papajohns.domain.pizza.PizzaEntity;
+import com.springboot.papajohns.domain.pizza.ToppingEntity;
+import com.springboot.papajohns.service.pizza.component.Crust;
 import com.springboot.papajohns.service.pizza.component.PizzaMenu;
 import com.springboot.papajohns.service.pizza.component.Topping;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
 @AllArgsConstructor
+@Data
 public class PizzaDto {
     private final PizzaMenu pizzaMenu;
-    private Dow dow;
+    private Crust crust;
     private List<Topping> toppings;
 
-    public PizzaDto(PizzaMenu pizzaMenu, Dow dow) {
+    public PizzaDto(PizzaMenu pizzaMenu, Crust crust) {
         this.pizzaMenu = pizzaMenu;
-        this.dow = dow;
+        this.crust = crust;
     }
 
     public PizzaDto(PizzaMenu pizzaMenu, List<Topping> toppings) {
@@ -26,15 +31,43 @@ public class PizzaDto {
     }
 
     public int getTotalPrice() {
-        int totalPrice = pizzaMenu.getPizza_price();
+        int totalPrice = pizzaMenu.getPizzaPrice();
 
-        if(dow != null) {
-            totalPrice += dow.getDow_price();
+        if(crust != null) {
+            totalPrice += crust.getCrustPrice();
         }
 
         if(toppings != null) {
-            totalPrice += toppings.stream().mapToInt(Topping::getTopping_price).sum();
+            totalPrice += toppings.stream().mapToInt(Topping::getToppingPrice).sum();
         }
         return totalPrice;
+    }
+
+    public PizzaEntity toEntity() {
+        if(crust == null && toppings == null)
+            return PizzaEntity.builder()
+                    .pizza_name(pizzaMenu.getPizzaName())
+                    .pizza_size(pizzaMenu.getPizzaSize())
+                    .build();
+
+        List<ToppingEntity> toppingEntities = new ArrayList<>();
+
+        if(toppings != null) {
+            toppings.forEach(topping -> {toppingEntities.add(topping.toEntity());});
+        }
+
+        if(crust == null)
+            return PizzaEntity.builder()
+                    .pizza_name(pizzaMenu.getPizzaName())
+                    .pizza_size(pizzaMenu.getPizzaSize())
+                    .toppingEntities(toppings == null? null : toppingEntities)
+                    .build();
+
+        return PizzaEntity.builder()
+            .pizza_name(pizzaMenu.getPizzaName())
+            .pizza_size(pizzaMenu.getPizzaSize())
+            .crust_type(crust.getCrustType())
+            .toppingEntities(toppings == null? null : toppingEntities)
+            .build();
     }
 }

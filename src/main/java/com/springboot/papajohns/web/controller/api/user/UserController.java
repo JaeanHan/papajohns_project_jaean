@@ -51,17 +51,6 @@ public class UserController {
         return ResponseEntity.ok().body(new CMRespDto<>(1, "조회 성공", user.toRespDto()));
     }
 
-    @PostMapping("/login")
-    public String login() {
-        System.out.println("called?");
-        return "login";
-    }
-
-    @PostMapping("/logout")
-    public String logout() {
-        return "logout";
-    }
-
     @GetMapping("/check")
     public String check(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         try {

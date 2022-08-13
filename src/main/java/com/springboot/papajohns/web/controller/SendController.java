@@ -20,7 +20,9 @@ public class SendController {
         CoolAPIReqDto coolAPIReqDto = CoolAPIReqDto.builder()
                 .phoneNumber(phoneNumber)
                 .build();
-        CoolAPIRespDto coolAPIRespDto;
+
+        CoolAPIRespDto coolAPIRespDto = null;
+
         try {
             coolAPIRespDto = authService.sendSMS(coolAPIReqDto);
         } catch (CoolsmsException e) {
